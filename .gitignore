@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Pruebas de librerias
+/projects/test-library
+/projects/test-library/*

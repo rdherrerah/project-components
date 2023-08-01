@@ -47,3 +47,6 @@ export * from './lib/input-text/input-text.module';
 export * from './lib/input-text/input-text.component';
 export * from './lib/input-text/input-text.service';
 ```
+## Instalación de Librerias dependientes
+1. Bootstra y dependientes `npm install bootstrap jquery @popperjs/core`
+2. Agregar dependencias en el archivo public-api.ts y package,json
