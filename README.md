@@ -28,8 +28,22 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Pasos a ejecutar para creación de librería NPM
 1. Generar Proyecto Angular - npm 
-`ng new name-proyect --create-application=false`
-2. Generar Librerias
-`ng generate library name-component`
+`ng new name-project --create-application=false`
+2. Generar proyecto de librerias
+`ng generate library name-project-component-npm`
 3. Generar Proyecto de prueba
 `ng g application test-library`
+
+## Pasos a ejecutar para creación de librería NPM
+1. Generar componente en librería
+`ng g component name-component --project=project-component-npm --skip-import`
+2. Generar modulo del componente
+`ng g module name-component --project=project-component-npm`
+3. Generar modulo del componente
+`ng g service name-component --project=project-component-npm`
+3. Configurar el archivo public-api.ts
+```typescript
+export * from './lib/input-text/input-text.module';
+export * from './lib/input-text/input-text.component';
+export * from './lib/input-text/input-text.service';
+```
