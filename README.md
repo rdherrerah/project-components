@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Pasos a ejecutar para creación de librería NPM
+## Pasos a ejecutar la creación de librería NPM
 1. Generar Proyecto Angular - npm 
 `ng new name-project --create-application=false`
 2. Generar proyecto de librerias
@@ -34,7 +34,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 3. Generar Proyecto de prueba
 `ng g application test-library`
 
-## Pasos a ejecutar para creación de librería NPM
+## Pasos a ejecutar para creación de Componentes
 1. Generar componente en librería
 `ng g component name-component --project=project-component-npm --skip-import`
 2. Generar modulo del componente
