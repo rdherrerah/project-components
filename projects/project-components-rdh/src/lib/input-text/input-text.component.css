@@ -1,0 +1,11 @@
+.mm {
+	text-transform: lowercase;
+}
+
+.MM {
+	text-transform: uppercase;
+}
+
+.Mm {
+	text-transform: capitalize;
+}

@@ -1,4 +1,17 @@
 <div>
-	<label for="" class="form-label">texto</label>
-	<input type="text" name="" id="" placeholder="" class="form-control">
+	<label 
+		*ngIf="label!==''"
+		[for]="id"
+		class="form-label">
+		{{label}}
+	</label>
+	<input
+		type="text"
+		[name]="id"
+		[id]="id"
+		[placeholder]="placeholder"
+		[ngClass]="transformClass()"
+		[value]="value"
+		[disabled]="disabled"
+		[readOnly]="readonly">
 </div>
