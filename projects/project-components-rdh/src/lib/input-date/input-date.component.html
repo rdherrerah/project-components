@@ -1,0 +1,13 @@
+<mat-form-field>
+	<mat-label>{{label}}</mat-label>
+	<input
+		#inputDate
+		matInput 
+		[matDatepicker]="picker"
+		[id]="id"
+		(input)="formatingDate(fmtDate)"
+		[disabled]="disabled || disabledInput">
+	<mat-hint [hidden]="spanLabel==''">{{spanLabel}}</mat-hint>
+	<mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+	<mat-datepicker #picker [disabled]="disabled || disabledCalendar"></mat-datepicker>
+</mat-form-field>

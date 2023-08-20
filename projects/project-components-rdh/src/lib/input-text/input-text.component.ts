@@ -23,19 +23,6 @@ export class InputTextComponent implements OnInit {
     return classList;
   }
 
-  private _setClassForFormat(): string {
-    switch (this.format) {
-      case 'mm':
-        return 'minuscula';
-      case 'MM':
-        return 'mayuscula';
-      case 'Mm':
-        return 'capitalizable';
-      default:
-        return '';
-    }
-  }
-
   private _setClassForFormControl(): string {
     if (this.readonlyPlainText) {
       this.readonly = true;

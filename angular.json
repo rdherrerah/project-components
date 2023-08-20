@@ -101,6 +101,7 @@
               "projects/test-library/src/assets"
             ],
             "styles": [
+              "projects/test-library/src/theme.scss",
               "projects/test-library/src/styles.scss"
             ],
             "scripts": []

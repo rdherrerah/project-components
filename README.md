@@ -27,26 +27,32 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Pasos a ejecutar la creación de librería NPM
-1. Generar Proyecto Angular - npm 
-`ng new name-project --create-application=false`
+
+1. Generar Proyecto Angular - npm
+   `ng new name-project --create-application=false`
 2. Generar proyecto de librerias
-`ng generate library name-project-component-npm`
+   `ng generate library name-project-component-npm`
 3. Generar Proyecto de prueba
-`ng g application test-library`
+   `ng g application test-library`
 
 ## Pasos a ejecutar para creación de Componentes
+
 1. Generar componente en librería
-`ng g component name-component --project=project-component-npm --skip-import`
+   `ng g component name-component --project=project-component-npm --skip-import`
 2. Generar modulo del componente
-`ng g module name-component --project=project-component-npm`
+   `ng g module name-component --project=project-component-npm`
 3. Generar modulo del componente
-`ng g service name-component --project=project-component-npm`
-3. Configurar el archivo public-api.ts
+   `ng g service name-component --project=project-component-npm`
+4. Configurar el archivo public-api.ts
+
 ```typescript
-export * from './lib/input-text/input-text.module';
-export * from './lib/input-text/input-text.component';
-export * from './lib/input-text/input-text.service';
+export * from "./lib/input-text/input-text.module";
+export * from "./lib/input-text/input-text.component";
+export * from "./lib/input-text/input-text.service";
 ```
+
 ## Instalación de Librerias dependientes
+
 1. Bootstra y dependientes `npm install bootstrap jquery @popperjs/core`
 2. Agregar dependencias en el archivo public-api.ts y package,json
+3. Importar date-fns @angular/forms

@@ -42,5 +42,5 @@ testem.log
 Thumbs.db
 
 # Pruebas de librerias
-/projects/test-library
-/projects/test-library/*
+# /projects/test-library
+# /projects/test-library/*
