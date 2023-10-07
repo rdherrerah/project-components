@@ -56,3 +56,5 @@ export * from "./lib/input-text/input-text.service";
 1. Bootstra y dependientes `npm install bootstrap jquery @popperjs/core`
 2. Agregar dependencias en el archivo public-api.ts y package,json
 3. Importar date-fns @angular/forms
+4. npm i angular-material-icons @angular/material
+5. npm install material-design-icons-iconfont

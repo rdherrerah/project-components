@@ -1,9 +1,14 @@
-<input-date
-	[label]="'Fecha'"
-	[placeholder]="'Fecha entrar'"
-	[disabled]="true"
-	></input-date>
-<input-text
-	[label]="'Texto'"
-	[placeholder]="'Texto'"
-></input-text>
+<input-date [label]="'Fecha'" [placeholder]="'Fecha entrar'" [disabled]="true"></input-date>
+<form [formGroup]="miFormulario">
+	<input-text
+		[label]="'Texto'"
+		[caseMm]="'mm'"
+		[placeholder]="'Texto'"
+		[formControlName]="'texto'"></input-text>
+	<br>
+	<input-number
+		[label]="'numero'"
+		[formControlName]="'numero'"
+		[decimal]="2"
+		></input-number>
+</form>

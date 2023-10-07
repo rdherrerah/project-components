@@ -1,4 +1,11 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  forwardRef,
+} from '@angular/core';
 import {
   ControlContainer,
   ControlValueAccessor,
@@ -9,32 +16,40 @@ import {
 import { DEFAULT_MESSAGE, ERRORS } from '../../shared/enum/Errors';
 
 @Component({
-  selector: 'input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.css'],
+  selector: 'input-number',
+  templateUrl: './input-number.component.html',
+  styleUrls: ['./input-number.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputTextComponent),
+      useExisting: forwardRef(() => InputNumberComponent),
       multi: true,
     },
   ],
 })
-export class InputTextComponent implements OnInit, ControlValueAccessor {
+export class InputNumberComponent implements OnInit, ControlValueAccessor {
+  @ViewChild('inputNumber') inputNumber!: ElementRef;
+
   @Input() id: string = '';
   @Input() placeholder: string = '';
-  @Input() label: string = '';
-  @Input() caseMm: string | ['mm', 'MM', 'Mm', ''] = '';
+  @Input() label: string | null = '';
   @Input() value: string = '';
   @Input() formControlName: string = '';
   @Input() disabled: boolean = false;
-  @Input() readonly: boolean = false;
   @Input() required: boolean = false;
   @Input() closeOption: boolean = false;
+  @Input() decimal: number = 0;
   @Input() readonlyPlainText: boolean = false;
+
+  private _pattern: string = '';
+  formatPattern = (dec: number) =>
+    `^\\d*${dec === 0 ? '' : '\\.?'}\\d{0,${dec}}$`;
+
   control: FormControl = new FormControl('');
 
-  constructor(private controlContainer: ControlContainer) {}
+  constructor(private controlContainer: ControlContainer) {
+    this._pattern = this.formatPattern(this.decimal);
+  }
 
   ngOnInit(): void {
     if (this.controlContainer && this.formControlName) {
@@ -60,13 +75,19 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {}
 
-  transformClass(): string[] {
-    const classList: string[] = [];
-    // Default
-    classList.push(this.caseMm as string);
-    return classList;
+  formatingNumber(): void {
+    this._pattern = this.formatPattern(this.decimal);
+    let value = this.inputNumber.nativeElement.value as string;
+    const reg = new RegExp(this._pattern);
+    if (!RegExp(reg).exec(value))
+      value = value.length === 1 ? '' : value.substring(0, value.length - 1);
+    this.inputNumber.nativeElement.value = value;
   }
 
+  transformClass(): string[] {
+    const classList: string[] = [];
+    return classList;
+  }
   getErrors(): string[] {
     let errors: ValidationErrors;
     if (this.control?.errors) {

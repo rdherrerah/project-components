@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputTextComponent } from './input-text.component';
+import { InputNumberComponent } from './input-number.component';
 import { SharedModule } from '../shared.module';
 
 @NgModule({
-  declarations: [InputTextComponent],
+  declarations: [InputNumberComponent],
   imports: [CommonModule, SharedModule],
-  exports: [InputTextComponent],
+  exports: [InputNumberComponent],
 })
-export class InputTextModule {}
+export class InputNumberModule {}
